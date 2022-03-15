@@ -1,0 +1,63 @@
+crear proyecto node:
+npm init
+licencia: MIT
+
+instalar express --> framework, rutas, peticiones, etc. para trabajar con http
+npm install express --save
+
+instalar body-parser --> libreria para convertir peticiones a un objeto json para javascript para usar en backend
+npm install body-parser --save
+
+instalar connect-multiparty --> permite subir archivos al backend y trabajar con protocolos de file
+npm install connect-multiparty --save
+
+instalar mongoose --> libreria orm para trabajar con mongodb, crear modelos, entidades, ofrece metodos optimizados 
+npm install mongoose --save
+
+instalar nodemon --> para trabajar en hot con el servidor de node solo funciona en desarrollo
+npm install nodemon --save-dev
+
+crear archivo index.js
+agregar en package.json->scripts:
+"start": "nodemon index.js" -->para iniciar en nodemon el archivo index.js
+
+crear archivo app donde se realizan las configuraciones
+
+
+/*-------------- ARCHIVO "app.js"----------------------------*/
+
+'use strict'
+var express = require('express');
+var bodyParser = require ('body-parser');
+var app = express();
+ 
+/**
+ * cargar archivos de rutas
+ */
+
+
+
+/**
+ * middlewares --> capa que se ejecuta antes de la accion de un controlador. 
+ * antes del resultado de una peticion
+*/
+app.use(bodyParser.urlencoded({extended:false})); // configuracion
+app.use(bodyParser.json()); // convertir a json
+
+/**
+ * CORS
+*/
+
+
+/**
+ * cargar rutas
+*/
+
+
+/**
+ * exportar
+ * 
+ */
+module.exports = app;
+
+/*---------------------------------------------------------*/
