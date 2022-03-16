@@ -1,5 +1,6 @@
 'use strict'
 var Project = require ('../models/project');
+var fs = require('fs');
 var controller = {
     home: function(req, res){
         return res.status (200).send({
@@ -8,7 +9,7 @@ var controller = {
     },
     test: function(req, res) {
         return res.status (200).send({
-            message: 'metodo test del proyectController'
+            message: 'metodo test del projectController'
         });
     },
     /**
@@ -16,7 +17,7 @@ var controller = {
      * @param {params} req 
      * @param {*} res 
      */
-    create: function (req,res){
+    create:  (req,res)=>{
         var project = new Project();
         var params = req.body;
         project.name = params.name;
@@ -44,7 +45,7 @@ var controller = {
      * @param {*} res 
      * @returns 
      */
-    index: function (req,res){
+    index: (req,res)=>{
         
         var projectId = req.params.id
         if(projectId==null) return getAll(res);
@@ -57,7 +58,7 @@ var controller = {
      * @param {id} req 
      * @param {*} res 
      */
-    update: function (req,res){
+    update: (req,res)=>{
         var projectId = req.params.id;
         var update = req.body;
         Project.findByIdAndUpdate(projectId,update,{new:true},(err,projectUpdated)=>{
@@ -79,7 +80,7 @@ var controller = {
      * @param {id} req 
      * @param {*} res 
      */
-    delete: function (req,res){
+    delete: (req,res)=>{
         var projectId = req.params.id;
         
         Project.findByIdAndDelete(projectId,(err,projectDeleted)=>{
@@ -102,13 +103,38 @@ var controller = {
      * @param {*} res 
      * @returns 
      */
-    uploadImage: function(req,res){
+    uploadImage: (req,res)=>{
         var projectId = req.params.id;
         var fileName = "imagen no subida...";
         if (req.files){
-            return res.status(200).send({
-                files: req.files
-            });
+            var filePath = req.files.image.path;
+            var fileSplit = filePath.split('\\');
+            var fileName = fileSplit[1];
+            var extSplit = fileName.split('\.');
+            var fileExt = extSplit[1];
+            if (fileExt =='png'||fileExt =='jpg'||fileExt =='jpeg'||fileExt =='gif')
+            {
+                Project.findByIdAndUpdate(projectId,{image: fileName},{new:true},(err,projectUpdated)=>{
+                    if(err) return res.status(500).send({
+                        message: "la imagen no se ha subido"
+                    });
+                    if(!projectId) return res.status(404).send({
+                        message: "el registro no existe"
+                    })
+                    return res.status(200).send({
+                        project: projectUpdated
+                    });
+                });
+            }else {
+                fs.unlink(filePath,(err)=>{
+                    return res.status(200).send({
+                        message: "el formato del archivo ingresado no es correcto"
+                        });
+                });
+                
+            }
+            
+            
         } else {
             return res.status(200).send({
                 message: fileName
@@ -116,7 +142,7 @@ var controller = {
         }
     }
 };
-function get(id,res) {
+const get = (id,res)=> {
     Project.findById(id,(err,project)=>{
         if (err) return res.status(500).send({
             message: "error al devolver los datos"
@@ -129,7 +155,7 @@ function get(id,res) {
         });
     });
 }
-function getAll(res) {
+const getAll= res=> {
     Project.find({}).sort('year').exec((err,project)=>{
         if (err) return res.status(500).send({
             message: "error al devolver los datos"

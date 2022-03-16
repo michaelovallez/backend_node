@@ -61,3 +61,18 @@ app.use(bodyParser.json()); // convertir a json
 module.exports = app;
 
 /*---------------------------------------------------------*/
+
+
+
+
+
+
+
+( "tarifa variable" - "subsidio estado nacional" ) / "consumo facturado" = Precio del kw/h real.
+
+   ( 6534.92         -       3794.64 )             /        574          =     4.7740
+
+
+"precio del kw/h real" * "consumo mensual marcado en el medidor" = total en $ del consumo del mensual
+
+        4.7740         *                440                      =          $2.100,563
