@@ -9,7 +9,7 @@ if (process.env.PORT) {
 }
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://michaelovallez:eidfs2008MAMA**@cluster0.0yidav5.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://michaelovallez:eidfs2008MAMA**@cluster0.0yidav5.mongodb.net/?retryWrites=true&w=majority')
     .then(()=> {
         console.log("conexion a db establecida correctamente");
         //creacion del servidor
