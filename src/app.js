@@ -1,13 +1,13 @@
 "use strict";
-var express = require("express");
-var bodyParser = require("body-parser");
+const express = require("express");
+const bodyParser = require("body-parser");
 const db = require('./config/db');
 const cors = require('cors');
-var app = express();
+const app = express();
 /**
  * cargar archivos de rutas
  */
-var project_routes = require ('./routes/projectRoutes');
+const project_routes = require ('./routes/projectRoutes');
 /**
  * middlewares --> capa que se ejecuta antes de la accion de un controlador.
  * antes del resultado de una peticion

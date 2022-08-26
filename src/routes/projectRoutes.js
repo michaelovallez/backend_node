@@ -1,9 +1,9 @@
 'use strict'
-var express = require('express');
-var projectController = require('../controllers/projectController');
-var router = express.Router();
-var multipart = require('connect-multiparty');
-var multipartMiddleware = multipart({uploadDir: './uploads'});
+const router = require('express').Router();
+const projectController = require('../controllers/projectController');
+const multipart = require('connect-multiparty');
+const multipartMiddleware = multipart({uploadDir: './uploads'});
+
 router.get('/home', projectController.home);
 router.post('/test', projectController.test);
 
