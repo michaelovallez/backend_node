@@ -1,7 +1,7 @@
 "use strict";
 var express = require("express");
 var bodyParser = require("body-parser");
-const db = require('./database/db_congreso');
+const db = require('./config/db');
 const cors = require('cors');
 var app = express();
 /**
@@ -27,7 +27,10 @@ app.use(bodyParser.json()); // convertir a json
 /**
  * cargar rutas
  */
-app.use ('/api',project_routes);
+ app.get('/', (req, res) => {
+  res.send('Server all rigth!!!!')
+})
+// app.use ('/api',project_routes);
 
 /**
  * exportar
