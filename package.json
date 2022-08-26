@@ -2,18 +2,22 @@
   "name": "api-rest-nodejs",
   "version": "1.0.0",
   "description": "api rest",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon ./config/server"
   },
   "author": "Mike Ovallez",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parser": "^1.20.0",
     "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongoose": "^6.5.2"
+    "mongoose": "^6.5.2",
+    "node-cron": "^3.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

@@ -3,19 +3,28 @@ npm init
 licencia: MIT
 
 instalar express --> framework, rutas, peticiones, etc. para trabajar con http
-npm install express --save
+npm i express --save
 
 instalar body-parser --> libreria para convertir peticiones a un objeto json para javascript para usar en backend
-npm install body-parser --save
+npm i body-parser --save
 
 instalar connect-multiparty --> permite subir archivos al backend y trabajar con protocolos de file
-npm install connect-multiparty --save
+npm i connect-multiparty --save
 
 instalar mongoose --> libreria orm para trabajar con mongodb, crear modelos, entidades, ofrece metodos optimizados 
-npm install mongoose --save
+npm i mongoose --save
 
 instalar nodemon --> para trabajar en hot con el servidor de node solo funciona en desarrollo
-npm install nodemon --save-dev
+npm i nodemon --save-dev
+
+instalar node-cron --> libreria para crear crones
+npm i node-cron --save
+
+instalar axios --> consumir apis 
+npm i axios --save
+
+instalar cors --> para trabajar con apis externas y front
+npm i cors --save
 
 crear archivo index.js
 agregar en package.json->scripts:
@@ -61,18 +70,3 @@ app.use(bodyParser.json()); // convertir a json
 module.exports = app;
 
 /*---------------------------------------------------------*/
-
-
-
-
-
-
-
-( "tarifa variable" - "subsidio estado nacional" ) / "consumo facturado" = Precio del kw/h real.
-
-   ( 6534.92         -       3794.64 )             /        574          =     4.7740
-
-
-"precio del kw/h real" * "consumo mensual marcado en el medidor" = total en $ del consumo del mensual
-
-        4.7740         *                440                      =          $2.100,563

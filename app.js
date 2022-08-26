@@ -1,8 +1,9 @@
 "use strict";
 var express = require("express");
 var bodyParser = require("body-parser");
+const db = require('./database/db_congreso');
+const cors = require('cors');
 var app = express();
-
 /**
  * cargar archivos de rutas
  */
@@ -17,6 +18,11 @@ app.use(bodyParser.json()); // convertir a json
 /**
  * CORS
  */
+ const corsOptions = {
+    origin: "*",
+    optionsSuccessStatus: 200,
+  };          
+  app.use(cors(corsOptions));
 
 /**
  * cargar rutas
