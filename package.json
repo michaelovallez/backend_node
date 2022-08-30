@@ -4,8 +4,7 @@
   "description": "api rest",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./config/server"
+    "start": "nodemon ./src/config/server"
   },
   "author": "Mike Ovallez",
   "license": "MIT",

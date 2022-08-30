@@ -1,3 +1,7 @@
+//==============================================================
+//                          DATABASE
+//==============================================================
+
 const mongoose = require('mongoose');
 const mongo_uri = 'mongodb://localhost/cumpleaños_d8';
 
